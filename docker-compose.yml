@@ -1,0 +1,22 @@
+version: "3.8"  
+
+services:
+  root-config:  
+    build: ./root-config
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./root-config:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+
+  upload:
+    build: ./upload
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./upload:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
