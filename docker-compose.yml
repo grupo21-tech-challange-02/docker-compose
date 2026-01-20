@@ -1,22 +1,21 @@
-version: "3.8"  
+version: "3.8"
 
 services:
-  root-config:  
-    build: ./root-config
+  root-config:
+    build: ../root-config
     ports:
       - "9000:9000"
     volumes:
-      - ./root-config:/app
+      - ../root-config:/app
       - /app/node_modules
     environment:
       - NODE_ENV=development
-
-  upload:
-    build: ./upload
+  finance-app:
+    build: ../finance-app
     ports:
-      - "8081:8081"
+      - "8080:8080"
     volumes:
-      - ./upload:/app
+      - ../finance-app:/app
       - /app/node_modules
     environment:
       - NODE_ENV=development
